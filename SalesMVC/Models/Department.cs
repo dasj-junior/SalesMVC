@@ -14,7 +14,7 @@ namespace SalesMVC.Models
         {
         }
 
-        public Department(int iD, string name, ICollection<Seller> sellers)
+        public Department(int iD, string name)
         {
             ID = iD;
             Name = name;
