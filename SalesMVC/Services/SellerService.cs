@@ -26,5 +26,17 @@ namespace SalesMVC.Services
             _context.SaveChanges();
         }
 
+        public Seller FindByID(int ID)
+        {
+            return _context.Seller.FirstOrDefault(obj => obj.ID == ID);
+        }
+
+        public void Remove(int ID)
+        {
+            var obj = _context.Seller.Find(ID);
+            _context.Seller.Remove(obj);
+            _context.SaveChanges();
+        }
+
     }
 }
