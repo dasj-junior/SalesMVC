@@ -52,5 +52,21 @@ namespace SalesMVC.Controllers
             _sellerService.Insert(seller);
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Details(int? ID)
+        {
+            if (ID == null)
+            {
+                return NotFound();
+            }
+
+            var obj = _sellerService.FindByID(ID.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
     }
 }
