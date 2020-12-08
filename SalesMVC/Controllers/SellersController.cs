@@ -33,22 +33,6 @@ namespace SalesMVC.Controllers
             return View(viewModel);
         }
 
-        public async Task<IActionResult> Delete(int? ID)
-        {
-            if(ID == null)
-            {
-                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
-            }
-
-            var obj = await _sellerService.FindByIDAsync(ID.Value);
-            if(obj == null)
-            {
-                return RedirectToAction(nameof(Error), new { message = "Id not found" });
-            }
-
-            return View(obj);
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Seller seller)
@@ -61,6 +45,37 @@ namespace SalesMVC.Controllers
             }
             await _sellerService.InsertAsync(seller);
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(int? ID)
+        {
+            if (ID == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
+            }
+
+            var obj = await _sellerService.FindByIDAsync(ID.Value);
+            if (obj == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int ID)
+        {
+            try
+            {
+                await _sellerService.RemoveAsync(ID);
+                return RedirectToAction(nameof(Index));
+            }
+            catch(ApplicationException e)
+            {
+                return RedirectToAction(nameof(Error), new { message = e.Message });
+            }
         }
 
         public async Task<IActionResult> Details(int? ID)
