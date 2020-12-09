@@ -40,23 +40,23 @@ namespace SalesMVC.Migrations
                     Date = table.Column<DateTime>(nullable: false),
                     Amount = table.Column<double>(nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    SelllerID = table.Column<int>(nullable: true)
+                    SellerID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SalesRecord", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_SalesRecord_Seller_SelllerID",
-                        column: x => x.SelllerID,
+                        name: "FK_SalesRecord_Seller_SellerID",
+                        column: x => x.SellerID,
                         principalTable: "Seller",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_SalesRecord_SelllerID",
+                name: "IX_SalesRecord_SellerID",
                 table: "SalesRecord",
-                column: "SelllerID");
+                column: "SellerID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Seller_DepartmentID",

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic&display=swap");
+panel-footer@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic&display=swap");
 /*!
  * bootswatch v3.4.1
  * Homepage: https://bootswatch.com
@@ -5395,12 +5395,15 @@ button.list-group-item-danger.active:focus {
   color: inherit;
 }
 .panel-footer {
-  padding: 10px 15px;
-  background-color: #ecf0f1;
-  border-top: 1px solid #ecf0f1;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+    padding: 5px 15px;
+    border-bottom: 1px solid transparent;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: #ffffff;
+    background-color: #2c3e50;
+    border-color: #2c3e50;
 }
+
 .panel > .list-group,
 .panel > .panel-collapse > .list-group {
   margin-bottom: 0;

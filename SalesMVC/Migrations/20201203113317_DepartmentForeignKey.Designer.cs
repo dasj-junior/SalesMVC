@@ -40,13 +40,13 @@ namespace SalesMVC.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int?>("SelllerID");
+                    b.Property<int?>("SellerID");
 
                     b.Property<int>("Status");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("SelllerID");
+                    b.HasIndex("SellerID");
 
                     b.ToTable("SalesRecord");
                 });
@@ -75,9 +75,9 @@ namespace SalesMVC.Migrations
 
             modelBuilder.Entity("SalesMVC.Models.SalesRecord", b =>
                 {
-                    b.HasOne("SalesMVC.Models.Seller", "Selller")
+                    b.HasOne("SalesMVC.Models.Seller", "Seller")
                         .WithMany("Sales")
-                        .HasForeignKey("SelllerID");
+                        .HasForeignKey("SellerID");
                 });
 
             modelBuilder.Entity("SalesMVC.Models.Seller", b =>

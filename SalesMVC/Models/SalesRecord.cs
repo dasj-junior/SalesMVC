@@ -10,19 +10,19 @@ namespace SalesMVC.Models
         public DateTime Date { get; set; }
         public double Amount { get; set; }
         public SalesStatus Status { get; set; }
-        public Seller Selller { get; set; }
+        public Seller Seller { get; set; }
 
         public SalesRecord()
         {
         }
 
-        public SalesRecord(int iD, DateTime date, double amount, SalesStatus status, Seller selller)
+        public SalesRecord(int iD, DateTime date, double amount, SalesStatus status, Seller seller)
         {
             ID = iD;
             Date = date;
             Amount = amount;
             Status = status;
-            Selller = selller;
+            Seller = seller;
         }
     }
 }

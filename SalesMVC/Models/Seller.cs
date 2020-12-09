@@ -38,9 +38,9 @@ namespace SalesMVC.Models
         {
         }
 
-        public Seller(int iD, string name, string email, DateTime birthDate, double baseSalary, Department department)
+        public Seller(int Id, string name, string email, DateTime birthDate, double baseSalary, Department department)
         {
-            ID = iD;
+            ID = Id;
             Name = name;
             Email = email;
             BirthDate = birthDate;
@@ -48,12 +48,12 @@ namespace SalesMVC.Models
             Department = department;
         }
 
-        public void addSales(SalesRecord sr)
+        public void AddSales(SalesRecord sr)
         {
             Sales.Add(sr);
         }
 
-        public void removeSales(SalesRecord sr)
+        public void RemoveSales(SalesRecord sr)
         {
             Sales.Remove(sr);
         }
